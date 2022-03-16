@@ -1,0 +1,18 @@
+{
+  "name": "steammy-bot",
+  "version": "1.2.0",
+  "description": "a simple steam bot made by жnoobж#6228",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "IMXNOOBX",
+  "license": "ISC",
+  "dependencies": {
+    "dis-logs": "^1.2.7",
+    "steam-user": "^4.24.0",
+    "steamcommunity": "^3.44.0"
+  }
+}
