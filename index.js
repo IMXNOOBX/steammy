@@ -1,25 +1,32 @@
 const SteamUser = require('steam-user'); //https://www.npmjs.com/package/steam-user
 const SteamCommunity = require('steamcommunity'); //https://www.npmjs.com/package/steamcommunity
 const { Webhook } = require('dis-logs') //https://www.npmjs.com/package/dis-logs
-const pass =  require('./data/data.json')
-const config = require('./config.json')
-const fs = require('fs');
-
-const log = new Webhook(config.logWebhook);
-let client = new SteamUser();
-let community = new SteamCommunity();
+// const pass =  require('./data/data.json')
+// const config = require('./config.json')
+// const fs = require('fs');
 console.clear();
 
 
-console.log('[Bot] | Bot started!')
+
+let client = new SteamUser();
+let community = new SteamCommunity();
+
+client.data = require('./data/data.json');
+client.config = require('./config.json');
+client.functions = require('./utils/function');
+client.log = new Webhook(client.config.logWebhook);
+client.fs = require('fs');
+client.community = community;
+
+client.log.console('[Bot] | Bot started!')
 const logOnOptions = {
-	accountName : pass.accountName,
-	password : pass.password, 
-	// twoFactorCode: pass.twoFactorCode //SteamTotp.generateAuthCode(pass.twoFactorCode) 
+	accountName : client.data.accountName,
+	password : client.data.password, 
+	// twoFactorCode: client.data.twoFactorCode //SteamTotp.generateAuthCode(client.data.twoFactorCode) 
 };
 
 function clientLogin() {
-    log.success('[Bot] | Logging in!');
+     // client.log.success('[Bot] | Logging in!');
 		client.logOn(logOnOptions);
 }
 clientLogin();
@@ -27,8 +34,8 @@ clientLogin();
 /*---------------------------------[ LOGGED ON ]---------------------------------------*/
 client.on('loggedOn', () => {
   client.getPersonas([client.steamID], (personas) => {
-          log.success(`[Bot] | Logged as: ${client.accountInfo.name} - [${client.steamID}]`);  
-         client.setPersona(SteamUser.EPersonaState.Online);
+    client.log.success(`[Bot] | Logged as: ${client.accountInfo.name} - [${client.steamID}]`);  
+        client.setPersona(SteamUser.EPersonaState.Online);
          /*client.gamesPlayed(
            [
              config.statusText, 
@@ -37,26 +44,25 @@ client.on('loggedOn', () => {
      });
  });
 
-community.on('sessionExpired', (ERR) => {
-    if (!ERR) {
-      log.warn(`[Bot] | Session Expired. Relogging.`);
+community.on('sessionExpired', (err) => {
+    if (!err) {
+      client.log.warn(`[Bot] | Session Expired. Relogging.`);
       client.webLogOn();
     }
 });
 
 client.on('webSession', function(steamID, cookies){
     community.setCookies(cookies);
-    //client.gamesPlayed(config.statusText, true);
 });
 
 client.on('playingState', function (isInGame) {
   if (isInGame){
-    log.success('[Bot] | User in game already');
-    idler(false, false)
+    client.log.console('[Bot] | User in game already');
+    // functions.idler(false, false)
   }
-  else if (isInGame == false && stopIdling == false){
-    log.success('[Bot] | User not in game, starting to idle...');
-    idler(true, true)
+  else if (!isInGame){
+    client.log.console('[Bot] | User not in game, starting to idle...');
+    // functions.idler(true, true)
   }
 });
 

@@ -27,7 +27,7 @@ module.exports = (client, community, logg, clientLogin, commentUser, idler) =>{
                     logg.sendWarn("[admin] | User "+ n +" has been blocked");
                 } else {
                     client.chatMessage(user, "/pre ⚠️ Please provide a valid SteamID64");
-                    logg.sendErr("[admin] | Error blocking "+ n +" user");
+                    log.error("[admin] | Error blocking "+ n +" user");
                 }
             }
             if (msg.indexOf("!unblock") >= 0) {
@@ -38,7 +38,7 @@ module.exports = (client, community, logg, clientLogin, commentUser, idler) =>{
                     logg.sendWarn("[admin] | User "+ n +" has been unblocked");
                 } else {
                     client.chatMessage(user, "/pre ⚠️ Please provide a valid SteamID64");
-                    logg.sendErr("[admin] | Error unblocking "+ n +" user");
+                    log.error("[admin] | Error unblocking "+ n +" user");
                 }
             }
             if (msg == "!refresh") {
@@ -88,7 +88,7 @@ module.exports = (client, community, logg, clientLogin, commentUser, idler) =>{
 
                 } else {
                     client.chatMessage(user, "/pre ⚠️ Please provide a valid game ID");
-                    logg.sendErr("[admin] | Error idling \""+ n +"\" gameID");
+                    log.error("[admin] | Error idling \""+ n +"\" gameID");
                 }
             }
         }

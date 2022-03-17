@@ -1,28 +1,27 @@
 const SteamUser = require('steam-user');
-const config = require('../config.json');
 
-module.exports = (client, community, logg) =>{ 
+module.exports = (client) =>{ 
     client.on('friendRelationship', function(sid, relationship) {
         community.getSteamUser(sid, (err, user) => {
             if (err) {
-              return logg.sendErr(
+              return client.log.error(
                 `[Steam] | Error checking current friend relationship with new customer: ${err}`,
               );
             }
             if (relationship === 2) {
-              logg.send(
+              client.log.send(
                 `[Steam] | ${user.name} > ${sid.getSteamID64()} - SteamID`,
-              );
+                );
               client.addFriend(sid);
-              client.chatMessage(sid, config.other.quote + config.messages.welcomeMessage);
-              client.chatMessage(sid, config.other.pre + config.messages.firstMessage);
+              client.chatMessage(sid, client.config.other.quote + client.config.messages.welcomeMessage);
+              client.chatMessage(sid, client.config.other.pre + client.config.messages.firstMessage);
             } else if (relationship === 3) {
-              if (config.other.groupID) {
-                client.inviteToGroup(sid, config.other.groupID);
+              if (client.config.other.groupID) {
+                client.inviteToGroup(sid, client.config.other.groupID);
               }
             }
             if (relationship == SteamUser.EFriendRelationship.None) {
-              logg.sendWarn(`[Steam] | User id: ${user.name} has deleted us from their friendlist.\nUrl: https://steamcommunity.com/profiles/${sid.getSteamID64()}/`);
+              client.log.warn(`[Steam] | User id: ${user.name} has deleted us from their friendlist.\nUrl: https://steamcommunity.com/profiles/${sid.getSteamID64()}/`);
             }
           });
     });

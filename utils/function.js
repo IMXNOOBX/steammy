@@ -1,3 +1,5 @@
+const SteamUser = require('steam-user');
+const client = SteamUser;
 let stopIdling = false;
 class func {
 

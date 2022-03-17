@@ -14,5 +14,8 @@
     "dis-logs": "^1.2.7",
     "steam-user": "^4.24.0",
     "steamcommunity": "^3.44.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
