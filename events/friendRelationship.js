@@ -20,7 +20,7 @@ module.exports = (client) =>{
                 client.inviteToGroup(sid, client.config.other.groupID);
               }
             }
-            if (relationship == SteamUser.EFriendRelationship.None) {
+            else if (relationship == 0) { // SteamUser.EFriendRelationship.None
               client.log.warn(`[Steam] | User id: ${user.name} has deleted us from their friendlist.\nUrl: https://steamcommunity.com/profiles/${sid.getSteamID64()}/`);
             }
           });

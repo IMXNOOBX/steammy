@@ -1,6 +1,7 @@
 const SteamUser = require('steam-user'); //https://www.npmjs.com/package/steam-user
 const SteamCommunity = require('steamcommunity'); //https://www.npmjs.com/package/steamcommunity
 const { Webhook } = require('dis-logs') //https://www.npmjs.com/package/dis-logs
+const auth = require('dotenv').config()
 // const pass =  require('./data/data.json')
 // const config = require('./config.json')
 // const fs = require('fs');
@@ -11,18 +12,18 @@ console.clear();
 let client = new SteamUser();
 let community = new SteamCommunity();
 
-client.data = require('./data/data.json');
+// client.data = require('./data/data.json');
 client.config = require('./config.json');
-client.functions = require('./utils/function');
+client.functions = require('./utils/functions');
 client.log = new Webhook(client.config.logWebhook);
 client.fs = require('fs');
 client.community = community;
 
 client.log.console('[Bot] | Bot started!')
 const logOnOptions = {
-	accountName : client.data.accountName,
-	password : client.data.password, 
-	// twoFactorCode: client.data.twoFactorCode //SteamTotp.generateAuthCode(client.data.twoFactorCode) 
+	accountName : process.env.STEAM_USER,
+	password : process.env.STEAM_PASS, 
+	// twoFactorCode: process.env.STEAM_2FA //SteamTotp.generateAuthCode(process.env.STEAM_2FA) 
 };
 
 function clientLogin() {
@@ -58,11 +59,11 @@ client.on('webSession', function(steamID, cookies){
 client.on('playingState', function (isInGame) {
   if (isInGame){
     client.log.console('[Bot] | User in game already');
-    // functions.idler(false, false)
+    client.functions.idler(client, false, false)
   }
   else if (!isInGame){
     client.log.console('[Bot] | User not in game, starting to idle...');
-    // functions.idler(true, true)
+    client.functions.idler(client, true, true)
   }
 });
 

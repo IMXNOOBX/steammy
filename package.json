@@ -1,6 +1,6 @@
 {
   "name": "steammy-bot",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "a simple steam bot made by жnoobж#6228",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "dis-logs": "^1.2.7",
+    "dotenv": "^16.0.0",
     "steam-user": "^4.24.0",
     "steamcommunity": "^3.44.0"
   },
