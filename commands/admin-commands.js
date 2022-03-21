@@ -50,7 +50,7 @@ module.exports = (client) =>{
                 client.logOff();
                 client.log.warn('[admin] | Logged off... Waiting 15 sec for exceed limit');
                 setTimeout(() => {
-                    clientLogin();
+                    client.auth.clientLogin(client);
                 }, 15000);
             }
             if (msg == "!stop") {
