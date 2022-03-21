@@ -4,6 +4,7 @@ const SID64REGEX = new RegExp(/^[0-9]{17}$/);
 module.exports = (client) =>{ 
     client.on("friendMessage", function(user, msg, type){
         msg = msg.toLowerCase();
+
         if(user == client.config.adminSteamID64s[0]){ //admin commands >---------------------------------------------------------------
             if (msg == "!help-admin") {
                 client.chatMessage(user, "/pre Admin Commands");
@@ -77,7 +78,7 @@ module.exports = (client) =>{
                     client.chatMessage(user, "/pre ⚠️ Please provide a valid <start/stop> option");
                 }
             }
-            if (msg.indexOf("!idle") >= 0) {
+            else if (msg.indexOf("!idle") >= 0) {
             let n = msg.toLowerCase().replace("!idle ", "").toString();
                 if (SID64REGEX.test(n)) {
                     client.functions.idler(client, true, true, n)

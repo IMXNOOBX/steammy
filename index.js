@@ -57,6 +57,7 @@ client.on('webSession', function(steamID, cookies){
 });
 
 client.on('playingState', function (isInGame) {
+  console.log(`isInGame: ${isInGame}`)
   if (isInGame){
     client.log.console('[Bot] | User in game already');
     client.functions.idler(client, false, false)
