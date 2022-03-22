@@ -17,6 +17,8 @@ module.exports = (client) =>{
               client.chatMessage(sid, client.config.other.pre + client.config.messages.firstMessage);
             } else if (relationship === 3) {
               if (client.config.other.groupID) {
+                client.chatMessage(sid, "/me [J4J] Join for Join, I will join your group automaticaly when you join mine");
+                client.chatMessage(sid, "/pre Check your group invites here:\n" + `https://steamcommunity.com/profiles/${user}/groups/pending`);
                 client.inviteToGroup(sid, client.config.other.groupID);
               }
             }

@@ -1,26 +1,21 @@
 {
     "adminSteamID64s": [
-        "76561199027322487",
-        ""
+        76561199027322487
     ],
     "logWebhook": "https://discord.com/api/webhooks/903339698318114866/91O4NKYv7VJ4Nu8aoRjEbjADzOEa9DONU0Mf9Z9E6szpMmGGNryI7DjMhyrZHiyWALM8",
     
     "autoAcceptFR": true,
-                                                            "////": "autoAcceptFR: will accept all friend requets",
     "autoSendMsg": true,
-                                                            "/////": "autoSendMsg: will send a msg when a new friend is added",
     "enableComment": true,
-                                                            "//////": "enableComment: will enable the module to comment in other users profiles",
     "statusText": "Steam bot | Made by жnoobж#6228",
     "messages": {
-        "welcomeMessage": "Hi!, welcome to my bot!",
-        "firstMessage": "Im a bot developed by жnoobж#6228 and im in beta\n\n-If you need some help just writte !help\n-For more help and suppor pls contact me by discord\n\nComment in my profile if you have some free time!",
-        "commentText": "+rep! by noob steam bot!"
+        "welcomeMessage": "Hi!, Welcome to my steam bot 'steammy'!",
+        "firstMessage": "Im a bot developed by жnoobж#6228 and im in beta\n\n-If you need some help just writte !help\n-For help and support contact me on discord or https://github.com/IMXNOOBX/steammy\n\nComment in my profile if you have some free time!",
+        "commentText": "+rep! By 'steammy' steam bot!"
     },
 
     "other": {
         "groupID": "103582791470608762",
-
         "me": "/me ",
         "quote": "/quote ",
         "pre": "/pre ",
@@ -61,10 +56,5 @@
             340
         ]
     },
-    "chatCooldownTime": "60000",
-    "blockedUsers": [
-        "",
-        "",
-        ""
-    ]
+    "chatCooldownTime": "60000"
 }
