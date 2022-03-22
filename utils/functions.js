@@ -30,9 +30,6 @@ class func {
         if (setOnline){
           client.setPersona(1); // SteamUser.EPersonaState.Online
         }
-        else if (!setOnline){
-          client.setPersona(0); // SteamUser.EPersonaState.Offline
-        }
         if (!shalStop) {
           client.gamesPlayed(client.config.statusText + ' | Afk');
         }

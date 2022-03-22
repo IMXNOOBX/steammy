@@ -1,6 +1,7 @@
-const SteamUser = require('steam-user'); //https://www.npmjs.com/package/steam-user
-const SteamCommunity = require('steamcommunity'); //https://www.npmjs.com/package/steamcommunity
-const { Webhook } = require('dis-logs') //https://www.npmjs.com/package/dis-logs
+const SteamUser = require('steam-user'); // https://www.npmjs.com/package/steam-user
+const SteamCommunity = require('steamcommunity'); // https://www.npmjs.com/package/steamcommunity
+const TradeOfferManager = require('steam-tradeoffer-manager'); // https://www.npmjs.com/package/steam-tradeoffer-manager
+const { Webhook } = require('dis-logs') // https://www.npmjs.com/package/dis-logs
 const auth = require('dotenv').config()
 // const pass =  require('./data/data.json')
 // const config = require('./config.json')
@@ -11,6 +12,7 @@ console.clear();
 
 let client = new SteamUser();
 let community = new SteamCommunity();
+let trade = new TradeOfferManager();
 
 // client.data = require('./data/data.json');
 client.config = require('./config.json');
@@ -19,6 +21,7 @@ client.auth = require('./utils/auth');
 client.log = new Webhook(client.config.logWebhook);
 client.fs = require('fs');
 client.community = community;
+vc = trade;
 
 client.log.console('[Bot] | Bot started!')
 

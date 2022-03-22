@@ -1,6 +1,6 @@
 
 module.exports = (client) => {
-    client.on('newOffer', (offer) => {
+    client.trade.on('newOffer', (offer) => {
         if (offer.itemsToGive.length === 0) {
             offer.accept((err, status) => {
                 if (!err) {
