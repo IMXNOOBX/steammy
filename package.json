@@ -1,6 +1,6 @@
 {
   "name": "steammy-bot",
-  "version": "1.2.7",
+  "version": "1.2.9",
   "description": "a simple steam bot made by жnoobж#6228",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,8 @@
   "dependencies": {
     "dis-logs": "^1.2.7",
     "dotenv": "^16.0.0",
+    "steam-totp": "^2.1.2",
+    "steam-tradeoffer-manager": "^2.10.4",
     "steam-user": "^4.24.0",
     "steamcommunity": "^3.44.0"
   },
