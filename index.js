@@ -68,6 +68,14 @@ client.log.console('[Bot] | Bot started!')
 //   }
 // });
 
+// client.community.editProfile({
+//     'name': username,
+//     "background": randomBG,
+//     "customURL": randomURL,
+// }).catch(err => {
+//     client.log.error('[BOT] | Error wile eiting the profile' + err)
+// });
+
 
 //Command Handler like in discord made by nuv. its trass but works. im looking to update it :c
 
