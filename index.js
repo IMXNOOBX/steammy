@@ -24,6 +24,7 @@ client.fs = require('fs');
 client.community = community;
 client.trade = trade;
 client.otp = SteamTotp;
+client.isInGame = false;
 
 client.log.console('[Bot] | Bot started!')
 
@@ -77,7 +78,7 @@ client.log.console('[Bot] | Bot started!')
 // });
 
 
-//Command Handler like in discord made by nuv. its trass but works. im looking to update it :c
+// Command Handler like in discord made by nuv. its trass but works. im looking to update it :c
 
 var hands = ['commands', 'events']
 hands.forEach(handler => {
