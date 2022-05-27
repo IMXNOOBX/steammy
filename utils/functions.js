@@ -13,13 +13,20 @@ class func {
           `An error occurred while getting user profile: Usually private. \nSteam Response: ${err}`,
         );
       } else {
-        user.comment(client.config.commentText, (err) => {
+        user.comment(client.config.commentText, (err) => { // Steam Response: Error: Unknown error
           if (err) {
             client.log.error(
               `An error occurred while commenting on user profile: comments disabled for any reason. \nSteam Response: ${err}`
             );
           }
         });
+        // client.community.postUserComment(SteamID, client.config.commentText, (err) => { // Steam Response: Error: Unknown error
+        //   if (err) {
+        //     client.log.error(
+        //       `An error occurred while commenting on user profile: comments disabled for any reason. \nSteam Response: ${err}`
+        //     );
+        //   }
+        // })
       }
     });
     return;
