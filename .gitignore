@@ -8,6 +8,8 @@
 data.json
 *.rest
 config.json
+./config.json
+./*.json
 
 # Builds
 /test
