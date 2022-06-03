@@ -1,6 +1,6 @@
 {
   "name": "steammy-bot",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "a simple steam bot made by жnoobж#6228",
   "main": "index.js",
   "scripts": {
