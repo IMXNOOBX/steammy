@@ -1,21 +1,18 @@
 const SteamUser = require('steam-user');
 
-module.exports = (client) =>{ 
+module.exports = (client) => {
     var lastError = ''
-    client.on("error", function(err){
+    client.on("error", function (err) {
         if (lastError == err) return;
         lastError = err;
-        if (err.eresult == SteamUser.EResult.InvalidPassword)
-        {
-            client.log.error("[Steam] | Login Denied - User or Password Wrong."); 
+        if (err.eresult == SteamUser.EResult.InvalidPassword) {
+            client.log.error("[Steam] | Login Denied - User or Password Wrong.");
         }
-        else if (err.eresult == SteamUser.EResult.AlreadyLoggedInElsewhere)
-        {
-            client.log.error("[Steam] | Login Denied -  Already logged in!");         
+        else if (err.eresult == SteamUser.EResult.AlreadyLoggedInElsewhere) {
+            client.log.error("[Steam] | Login Denied -  Already logged in!");
         }
-        else if (err.eresult == SteamUser.EResult.AccountLogonDenied)
-        {
-            client.log.error("[Steam] | Login Denied - SteamGuard is required");        
+        else if (err.eresult == SteamUser.EResult.AccountLogonDenied) {
+            client.log.error("[Steam] | Login Denied - SteamGuard is required");
         }
         else {
             client.log.error("[Steam] | Unknown Error: " + err);
@@ -28,4 +25,3 @@ module.exports = (client) =>{
         }, 15000);
     });
 }
-  
