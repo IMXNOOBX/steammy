@@ -15,7 +15,7 @@ module.exports = (client) =>{
             client.log.error("[Steam] | Login Denied - SteamGuard is required");        
         }
         else {
-            client.log.error("[Steam] | Unknown Error: \n" + err);
+            client.log.error("[Steam] | Unknown Error: " + err);
         } // all errors will log out our bot.
 
         // client.webLogOn();

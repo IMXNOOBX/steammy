@@ -7,7 +7,7 @@
 .env
 data.json
 *.rest
-config.json
+*config.json
 ./config.json
 ./*.json
 
