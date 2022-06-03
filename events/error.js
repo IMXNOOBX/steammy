@@ -16,7 +16,10 @@ module.exports = (client) =>{
         }
         else {
             client.log.error("[Steam] | Unknown Error: \n" + err);
-        }
+        } // all errors will log out our bot.
+
+        // client.webLogOn();
+        client.auth.clientLogin(client);
     });
 }
   
