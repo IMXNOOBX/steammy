@@ -49,15 +49,16 @@ module.exports = (client) =>{
                 client.log.warn('[admin] | Restarting the bot...');
                 client.chatMessage(user, '/me [admin] | Restarting the bot...');
                 client.logOff();
-                client.log.warn('[admin] | Logged off... Waiting 15 sec for exceed limit');
+                client.log.warn('[admin] | Logged off... Waiting 15 sec for rate limit');
                 setTimeout(() => {
                     client.auth.clientLogin(client);
                 }, 15000);
             }
             if (msg == "!stop") {
-                client.log.warn('[admin] | Received forcestop command, exiting...');
-                client.chatMessage(user, '/me [admin] | Received forcestop command, exiting...');
+                client.log.warn('[admin] | Received stop command, exiting...');
+                client.chatMessage(user, '/me [admin] | Received stop command, exiting...');
                 client.logOff();
+                process.exit(0);
             }
             //BETA FEATURE
             if (msg.indexOf("!idler") >= 0) {

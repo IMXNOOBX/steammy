@@ -38,7 +38,8 @@ class func {
       client.setPersona(1); // SteamUser.EPersonaState.Online
     }
     if (!shalStop) {
-      client.gamesPlayed(client.config.statusText + ' | Afk');
+      // client.gamesPlayed(client.config.statusText + ' | Afk');
+      client.gamesPlayed();
     }
     else if (shalStop) {
       if (gamesPlayedArray.lenght > 23) { // max 25 but to be sure lets keep it in 23

@@ -9,7 +9,6 @@ const auth = require('dotenv').config()
 // const fs = require('fs');
 console.clear();
 
-
 let client = new SteamUser();
 let community = new SteamCommunity();
 let trade = new TradeOfferManager();
@@ -23,6 +22,7 @@ client.fs = require('fs');
 client.community = community;
 client.trade = trade;
 client.otp = SteamTotp;
+client.isInGame = false;
 
 client.log.console('[Bot] | Bot started!')
 
