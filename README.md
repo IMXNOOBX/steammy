@@ -33,20 +33,20 @@ Simple advance steam bot to automatize my steam account. It has a lot of feature
 !test    - to test the chat messages
 
 [Admin/Dev Commands]
-!help    - will send a help menu
+!help-admin - will send a help menu
 
-!block   - <steamID> to block a user from the bot
-!refresh - to refresh the bot
-!restart - to restart the bot
-!stop    - to stop the bot
-!idle    - <gameID> to start idling a game
-!idler   - <start/stop> to set up
+!block   	- <steamID> to block a user from the bot
+!refresh 	- to refresh the bot
+!restart 	- to restart the bot
+!stop    	- to stop the bot
+!idle    	- <gameID> to start idling a game
+!idler   	- <start/stop> to set up
 
 [Features]
 1. Automatically accept friend request
 2. Automatically Accept/Deny group invites
 3. Idle 25 games at the same time (Hour boost)
-4. Automatically accept gift trades (when you dont give any of our items)
+4. Automatically accept gift trades (when you dont give any of your items)
 ```
 
 ## 📥 Install
@@ -87,7 +87,7 @@ _Star this project ⭐️ if it helped you!_
 ---
 
 <div align="right">
-<a href='https://github.com/IMXNOOBXreadme-generator'>💎</a>
+<a href='https://github.com/IMXNOOBX/readme-generator'>💎</a>
 </div>
 
 <!-- Made with: https://github.com/IMXNOOBX/readme-generator - ISC - 2022 - IMXNOOBX -->

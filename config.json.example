@@ -2,7 +2,7 @@
     "adminSteamID64s": [
         76561199027322487
     ],
-    "logWebhook": "https://discord.com/api/webhooks/903339698318114866/91O4NKYv7VJ4Nu8aoRjEbjADzOEa9DONU0Mf9Z9E6szpMmGGNryI7DjMhyrZHiyWALM8",
+    "logWebhook": "",
     
     "autoAcceptFR": true,
     "autoSendMsg": true,
@@ -15,7 +15,7 @@
     },
 
     "other": {
-        "groupID": "103582791470608762",
+        "groupID": "103582xxxxxxxxxx",
         "me": "/me ",
         "quote": "/quote ",
         "pre": "/pre ",
