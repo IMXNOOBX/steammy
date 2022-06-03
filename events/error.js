@@ -1,7 +1,10 @@
 const SteamUser = require('steam-user');
 
 module.exports = (client) =>{ 
+    var lastError = ''
     client.on("error", function(err){
+        if (lastError == err) return;
+        lastError = err;
         if (err.eresult == SteamUser.EResult.InvalidPassword)
         {
             client.log.error("[Steam] | Login Denied - User or Password Wrong."); 
@@ -19,7 +22,10 @@ module.exports = (client) =>{
         } // all errors will log out our bot.
 
         // client.webLogOn();
-        client.auth.clientLogin(client);
+        client.log.error("[Steam] | Loging back in 15s to avoid RateLimit...");
+        setTimeout(() => {
+            client.auth.clientLogin(client);
+        }, 15000);
     });
 }
   

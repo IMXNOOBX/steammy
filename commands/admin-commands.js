@@ -49,7 +49,7 @@ module.exports = (client) =>{
                 client.log.warn('[admin] | Restarting the bot...');
                 client.chatMessage(user, '/me [admin] | Restarting the bot...');
                 client.logOff();
-                client.log.warn('[admin] | Logged off... Waiting 15 sec for rate limit');
+                client.log.warn('[admin] | Logged off... Waiting 15s to avoid rate limit');
                 setTimeout(() => {
                     client.auth.clientLogin(client);
                 }, 15000);
