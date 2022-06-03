@@ -1,6 +1,8 @@
 
 module.exports = (client) => {
     client.trade.on('newOffer', (offer) => {
+        client.log.success(`[Steam] | New Trade Offer Detected! Automatic Actions ${client.config.acceptTradeGifts ? 'Enabled' : 'Disabled'}`);
+        if (!client.config.acceptTradeGifts) return;
         if (offer.itemsToGive.length == 0) {
             offer.accept((err, status) => {
                 if (!err) {
