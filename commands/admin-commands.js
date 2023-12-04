@@ -1,11 +1,11 @@
 
 const SID64REGEX = new RegExp(/^[0-9]{17}$/);
 
-module.exports = (client) =>{ 
-    client.on("friendMessage", function(user, msg, type){
+module.exports = (client) => {
+    client.on("friendMessage", function (user, msg, type) {
         msg = msg.toLowerCase();
 
-        if(user == client.config.adminSteamID64s[0]){ //admin commands >---------------------------------------------------------------
+        if (user == client.config.adminSteamID64s[0]) { //admin commands >---------------------------------------------------------------
             if (msg == "!help-admin") {
                 client.chatMessage(user, "/pre Admin Commands");
                 client.chatMessage(user, `/code 
@@ -23,10 +23,10 @@ module.exports = (client) =>{
                     client.chatMessage(user, "/me ✔️ User blocked.");
                     client.blockUser(n);
                     client.removeFriend(n);
-                    client.log.warn("[admin] | User "+ n +" has been blocked");
+                    client.log.warn("[admin] | User " + n + " has been blocked");
                 } else {
                     client.chatMessage(user, "/pre ⚠️ Please provide a valid SteamID64");
-                    client.log.error("[admin] | Error blocking "+ n +" user");
+                    client.log.error("[admin] | Error blocking " + n + " user");
                 }
             }
             if (msg.indexOf("!unblock") >= 0) {
@@ -34,10 +34,10 @@ module.exports = (client) =>{
                 if (SID64REGEX.test(n)) {
                     client.chatMessage(user, "/me ✔️ User unblocked.");
                     client.unblockUser(n);
-                    client.log.warn("[admin] | User "+ n +" has been unblocked");
+                    client.log.warn("[admin] | User " + n + " has been unblocked");
                 } else {
                     client.chatMessage(user, "/pre ⚠️ Please provide a valid SteamID64");
-                    client.log.error("[admin] | Error unblocking "+ n +" user");
+                    client.log.error("[admin] | Error unblocking " + n + " user");
                 }
             }
             if (msg == "!refresh") {
@@ -62,7 +62,7 @@ module.exports = (client) =>{
             }
             //BETA FEATURE
             if (msg.indexOf("!idler") >= 0) {
-            let n = msg.toLowerCase().replace("!idler ", "").toString();
+                let n = msg.toLowerCase().replace("!idler ", "").toString();
                 if (n == "start") {
                     client.functions.idler(client, true)
                     client.chatMessage(user, "/me ✔️ Started idling games!");
@@ -80,15 +80,15 @@ module.exports = (client) =>{
                 }
             }
             else if (msg.indexOf("!idle") >= 0) {
-            let n = msg.toLowerCase().replace("!idle ", "").toString();
+                let n = msg.toLowerCase().replace("!idle ", "").toString();
                 if (SID64REGEX.test(n)) {
                     client.functions.idler(client, true, true, n)
                     client.chatMessage(user, "/me ✔️ idling " + n);
-                    client.log.success("[admin] | idling \""+ n +"\" has been added to farm list");
+                    client.log.success("[admin] | idling \"" + n + "\" has been added to farm list");
 
                 } else {
                     client.chatMessage(user, "/pre ⚠️ Please provide a valid game ID");
-                    client.log.error("[admin] | Error idling \""+ n +"\" gameID");
+                    client.log.error("[admin] | Error idling \"" + n + "\" gameID");
                 }
             }
         }

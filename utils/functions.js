@@ -43,9 +43,9 @@ class func {
     }
     else if (shalStop) {
       if (gamesPlayedArray.lenght > 23) { // max 25 but to be sure lets keep it in 23
-        console.log('Max amount of games allowed passed')
-        return;
+        return console.log('Max amount of games allowed passed')
       }
+      if (addedGame) gamesPlayedArray.push(addedGame);
       if (!gamesPlayedArray.includes(client.config.statusText)) gamesPlayedArray.unshift(client.config.statusText) // https://stackoverflow.com/questions/8073673/how-can-i-add-new-array-elements-at-the-beginning-of-an-array-in-javascript
       client.gamesPlayed(gamesPlayedArray);
     }

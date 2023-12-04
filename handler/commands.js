@@ -1,4 +1,4 @@
-const {readdirSync} = require('fs')
+const { readdirSync } = require('fs')
 
 module.exports = async (client) => {
     const commandFiles = readdirSync('./commands').filter((file) => file.endsWith('.js'));
